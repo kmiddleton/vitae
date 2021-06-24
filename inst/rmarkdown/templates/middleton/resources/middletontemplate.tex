@@ -14,7 +14,7 @@ $endif$
 $if(headcolor)$
 \definecolor{headcolor}{HTML}{$headcolor$}
 $else$
-\definecolor{headcolor}{HTML}{990000}
+\definecolor{headcolor}{HTML}{000080}
 $endif$
 
 \usepackage{ifxetex,ifluatex}
@@ -203,6 +203,7 @@ $endfor$
 \newlength{\headerboxwidth}
 \setlength{\headerboxwidth}{\textwidth}
 %\addtolength{\headerboxwidth}{0.2cm}
+
 \makeatletter
 \def\maketitle{
 \thispagestyle{plain}
@@ -246,17 +247,22 @@ $if(position)$\\[0.1cm]\large $position$\\[0.6cm]$else$\\[0.7cm]$endif$
 \usepackage{booktabs,fontawesome}
 %\usepackage[t1,scale=0.86]{sourcecodepro}
 
+
+% Set up info box items %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% http://mirrors.ibiblio.org/CTAN/fonts/fontawesome/doc/fontawesome.pdf
 \name{$name$$if(surname)$ $surname$$endif$}
 \def\imagetop#1{\vtop{\null\hbox{#1}}}
 \info{%
 $if(address)$\raisebox{-0.05cm}{\imagetop{\faicon{map-marker}}} &  \imagetop{\begin{tabular}{@{}l@{}}$address$\end{tabular}}\\$endif$ %
+$if(address2)$ & $address2$\\$endif$%
 $if(www)$\faicon{home} & \href{http://$www$}{$www$}\\$endif$% %
 $if(phone)$\faicon{phone} & $phone$\\$endif$%
 $if(email)$\faicon{envelope} & $email$\\$endif$%
+$if(pubmed)$\faicon{university} & \href{https://www.ncbi.nlm.nih.gov/myncbi/$pubmed$/bibliography/public/}{NIH PubMed}\\$endif$%
 $if(twitter)$\faicon{twitter} & \href{https://twitter.com/$twitter$}{@$twitter$}\\$endif$%
 $if(github)$\faicon{github} & \href{https://github.com/$github$}{$github$}\\$endif$%
 $if(linkedin)$\faicon{linkedin} & \href{https://www.linkedin.com/in/$linkedin$}{$linkedin$}\\$endif$%
-$if(scholar)$\faicon{google} & \href{https://scholar.google.com/citations?user=$scholar$}{$scholar$}\\$endif$%
+$if(scholar)$\faicon{google} & \href{https://scholar.google.com/citations?user=$scholar$}{Google Scholar}\\$endif$%
 $if(orcid)$\faicon{openid} & \href{https://orcid.org/$orcid$}{$orcid$}\\$endif$%
 }
 
